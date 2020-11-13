@@ -17,6 +17,8 @@ public:
 	void closeServer();
 	void setHandker();
 
+	uint16_t port;
+
 	SOCKET serverSocket;
 	WSADATA WSAData;
 };
