@@ -15,7 +15,7 @@ public:
 
 	void startServer();
 	void closeServer();
-	void setHandker();
+	void setHanlker();
 
 	uint16_t port;
 
