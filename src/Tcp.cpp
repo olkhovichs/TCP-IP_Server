@@ -22,11 +22,22 @@ void TcpServer::startServer() {
 		std::cerr << "Error at socket:" << WSAGetLastError() << std::endl;
 	}
 
-	// blinding socket
+	// blinding socket (IP to socket)
 	primSocket = bind(serverSocket, (struct sockaddr*)&addr, lenAddr);
 	if (primSocket == SOCKET_ERROR) { // checking for binding
 		std::cout << "Bind failed: "<< WSAGetLastError() << std::endl;
 	}
+	
+	// listening connection
+	if (listen(serverSocket, SOMAXCONN) == SOCKET_ERROR) { // max number of TCP
+		std::cerr << "Listen faild: " << WSAGetLastError() << std::endl;
+	}
 
+	// handle();
+}
 
+void TcpServer::closeServer() {
+	closesocket(serverSocket);
+	WSACleanup();
+	std::cout << "Server was stoped." << std::endl;
 }
