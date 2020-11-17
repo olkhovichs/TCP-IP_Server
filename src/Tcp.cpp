@@ -33,7 +33,7 @@ void TcpServer::startServer() {
 		std::cerr << "Listen faild: " << WSAGetLastError() << std::endl;
 	}
 
-	// handle();
+	// setHandle();
 }
 
 void TcpServer::closeServer() {
@@ -41,3 +41,5 @@ void TcpServer::closeServer() {
 	WSACleanup();
 	std::cout << "Server was stoped." << std::endl;
 }
+
+void TcpServer::setHandle ()
